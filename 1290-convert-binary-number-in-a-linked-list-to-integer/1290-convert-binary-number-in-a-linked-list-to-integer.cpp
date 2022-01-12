@@ -37,7 +37,7 @@ public:
         {
             return 0;
         }
-        int ans=0;
+      /*  int ans=0;
         int len=length(head);
         ListNode* temp=head;
         //cout<<len<<" ";
@@ -50,6 +50,32 @@ public:
             temp=temp->next;
             len--;
         }
+        return ans;*/
+        
+        
+        
+        int ans=0;
+
+        ListNode* temp=head;
+
+        while(temp!=nullptr)
+        {
+            
+            ans*=2;
+            ans+=temp->val;
+            temp=temp->next;
+            
+        }
         return ans;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 };

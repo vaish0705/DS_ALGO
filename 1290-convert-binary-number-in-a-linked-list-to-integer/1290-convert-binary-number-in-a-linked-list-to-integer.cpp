@@ -62,7 +62,7 @@ public:
         {
             
             ans*=2;
-            ans+=temp->val;
+            ans+=temp->val*1;    ///2^0==1
             temp=temp->next;
             
         }

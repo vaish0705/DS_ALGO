@@ -16,6 +16,7 @@ public:
        {
            return nullptr;
        }
+        /*
         ListNode* dummy=new ListNode(-1);
         dummy->next=head;
         ListNode* tail=dummy;
@@ -34,6 +35,34 @@ public:
                 
         }
         
-        return dummy->next;
+        return dummy->next;*/
+        
+        
+        
+        
+        
+        
+        ListNode* new_head=removeElements(head->next,val);
+        if(head->val==val)
+        {
+            delete head;
+            return new_head;
+        }
+        else
+        {
+            head->next=new_head;
+        }
+        return head;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 };

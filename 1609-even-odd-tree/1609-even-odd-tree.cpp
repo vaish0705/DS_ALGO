@@ -11,6 +11,8 @@
  */
 class Solution {
 public:
+    //1st zigzag
+    //2nd only level
     bool isEvenOddTree(TreeNode* root) {
         
        /* bool flag=true;

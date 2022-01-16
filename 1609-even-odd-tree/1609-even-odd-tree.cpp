@@ -13,7 +13,7 @@ class Solution {
 public:
     bool isEvenOddTree(TreeNode* root) {
         
-        bool flag=true;
+       /* bool flag=true;
         
         if(root==nullptr)
         {
@@ -98,7 +98,61 @@ public:
         
         
         
-        return true;
+        return true;*/
+        
+        
+        
+        
+        queue <TreeNode*> q;
+        q.push(root); int l=0;
+        while(!q.empty()){
+            int n=q.size();
+            vector <int> lvl;
+            for(int i=0;i<n;i++){
+                TreeNode* t=q.front(); q.pop();
+                lvl.push_back(t->val);
+                if(t->left)
+                {
+                    q.push(t->left);
+                }
+                if(t->right){
+                    q.push(t->right);
+                }
+            }
+            if(l%2==0){
+                for(int i=0;i<lvl.size()-1;i++){
+                    if(lvl[i]>=lvl[i+1] || lvl[i]%2==0)
+                       {return false;}    
+                }
+                 if(lvl[lvl.size()-1]%2==0)
+                 return false;
+            }
+            else{
+                for(int i=0;i<lvl.size()-1;i++){
+                    if(lvl[i+1]>=lvl[i] || lvl[i]%2!=0 ){return false;}
+                }
+                 if(lvl[lvl.size()-1]%2!=0)
+                 return false;
+            }
+            l++;     
+        }
+    return true;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         

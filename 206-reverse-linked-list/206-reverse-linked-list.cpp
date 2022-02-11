@@ -10,50 +10,30 @@
  */
 class Solution {
 public:
-    
-    ListNode* reverse(ListNode* head)
-    {
-        if(head->next==nullptr)
-        {
-            return head;
-        }
-        
-        
-        ListNode* reversehead=reverse(head->next); //here i m asking recusrion to  reverse linkedlist from head->next to end  ,
-        //and i will take care of head
-        
-        //1->2->3
-        head->next->next=head;//now 1<--2  
-        head->next=NULL;
-            
-            return reversehead;
-        
-        
-        
-    }    
-    
-    
-    
-    
-    
     ListNode* reverseList(ListNode* head) {
         
-        if(head==nullptr || head->next==nullptr)
+        if(head==nullptr)
         {
-            return head;
+            return NULL;
         }
+
         
-        ListNode* n;
-        ListNode* prev=nullptr;
+        ListNode* prev=NULL;
         ListNode* curr=head;
+        ListNode* tem=head;
+        
         while(curr!=nullptr)
         {
-        n=curr->next;
-        curr->next=prev;
+            tem=curr->next;
+            curr->next=prev;
             prev=curr;
-            curr=n;
+            curr=tem;
+            
+    
         }
-        head=prev;
-        return head;
+    
+        return prev;
+        
+        
     }
 };

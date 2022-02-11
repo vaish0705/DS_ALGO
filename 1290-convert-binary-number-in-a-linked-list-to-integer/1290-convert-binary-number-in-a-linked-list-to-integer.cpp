@@ -10,72 +10,36 @@
  */
 class Solution {
 public:
-     
-    int length(ListNode*head)
-    {
-         if(head==nullptr)
-         {
-             return 0;
-         }
-        
-    ListNode* temp=head;
-        int len=0;
-        while(temp!=nullptr)
-        {
-           len++;
-            temp=temp->next;
-        }
-        return len;
-        
-        
-    }
-    
-    
     int getDecimalValue(ListNode* head) {
         
+        int n=0;
+        ListNode* temp=head;
+        while(temp!=nullptr)
+        {
+           temp=temp->next;
+            n++;
+
+        }
+                ListNode* tem=head;
+        
+        int ans=0;
+         
         if(head==nullptr)
         {
             return 0;
         }
-      /*  int ans=0;
-        int len=length(head);
-        ListNode* temp=head;
-        //cout<<len<<" ";
-        while(temp!=nullptr)
-        {
-            int bd=pow(2,(len-1))*temp->val;
-            //cout<<bd<<" ";
-            ans+=bd;   //2^2*1+2^1*0+2^0*1
-            //cout<<ans<<" ";
-            temp=temp->next;
-            len--;
-        }
-        return ans;*/
-        
-        
-        
-        int ans=0;
+        while(tem!=nullptr)
+        { 
+             int value=tem->val*(pow(2,n-1));
+            ans+=value;
+            n--;
+            tem=tem->next;
 
-        ListNode* temp=head;
-
-        while(temp!=nullptr)
-        {
-            
-            ans*=2;
-            ans+=temp->val*1;    ///2^0==1
-            temp=temp->next;
             
         }
+        
+        
         return ans;
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+      
     }
 };

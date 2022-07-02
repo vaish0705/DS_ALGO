@@ -19,21 +19,20 @@ void dfs(int n,int m,int r,int c,vector<vector<char>>&board)
         dfs(n,m,r+1,c,board);
     }
     
-   /* if(valid(n,m,r-1,c))
+    if(valid(n,m,r-1,c,board))
     {
         dfs(n,m,r-1,c,board);
-    }*/
+    }
     
     if(valid(n,m,r,c+1,board))
     {
         dfs(n,m,r,c+1,board);
     }
-   /* 
-    if(valid(n,m,r,c-1))
+   
+    if(valid(n,m,r,c-1,board))
     {
         dfs(n,m,r,c-1,board);
     }
-    */
     
     
 }

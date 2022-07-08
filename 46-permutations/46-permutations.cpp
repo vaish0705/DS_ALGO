@@ -3,9 +3,7 @@ public:
     
     
     
-
-    
-       void print_subset(int n,vector<int>&nums,vector<int>&ds,vector<vector<int>>&ans,int freq[])
+    void solve(int n,int freq[],vector<int>& nums,vector<int>&ds,vector<vector<int>>&ans)
     {
         if(ds.size()==n)
         {
@@ -13,37 +11,35 @@ public:
             return;
         }
         
-            
         
         for(int i=0;i<n;i++)
         {
-          if(!freq[i])
-          {
-            ds.push_back(nums[i]);
-            freq[i]=1;
-            print_subset(n,nums,ds,ans,freq);
-            freq[i]=0;
-            ds.pop_back();
-          }
-            
+            if(!freq[i])
+            {
+                freq[i]=1;
+                ds.push_back(nums[i]);
+                solve(n,freq,nums,ds,ans);
+                freq[i]=0;
+                ds.pop_back();
+            }
         }
     }
     
+    
+    
+    
     vector<vector<int>> permute(vector<int>& nums) {
-        
-        
-          int n=nums.size();
-         vector<int>ds;
-        vector<vector<int>>ans;
-        int freq[8];
-        for(int i=0;i<nums.size();i++)
+        int n=nums.size();
+        int freq[n];
+        for(int i=0;i<n;i++)
         {
             freq[i]=0;
         }
-        print_subset(n,nums,ds,ans,freq);
+        vector<int>ds;
+        vector<vector<int>>ans;
+        solve(n,freq,nums,ds,ans);
+        
         return ans;
-        
-        
         
     }
 };
